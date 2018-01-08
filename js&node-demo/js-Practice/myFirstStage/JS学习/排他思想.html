@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.xiaomao {
+				width: 100px;
+				height: 50px;
+			}
+			
+			.damao {
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var btn = document.getElementsByTagName("button");
+				for(var i = 0; i < btn.length; i++) {
+					btn[i].index=i;
+					btn[i].onclick = function() {
+						alert(this .index);
+						for(var j = 0; j < btn.length; j++) {
+							
+							btn[j].className = "xiaomao";
+
+						}
+						this.className = "damao xiaomao";
+						//属于多各类时用空格隔开
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<button class="xiaomao">排他思想</button>
+		<button class="xiaomao">排他思想</button>
+		<button class="xiaomao">排他思想</button>
+		<button class="xiaomao">排他思想</button>
+		<button class="xiaomao">排他思想</button>
+	</body>
+
+</html>

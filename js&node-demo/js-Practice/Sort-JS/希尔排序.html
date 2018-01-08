@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>希尔排序</title>
+		<!--
+			希尔排序：也是属于插入排序的，但是是插入排序的改进版本，又称递减增量排序算法；是不稳定的；
+			改进：直接插入排序每次只能将数据移动一位，因此比较低效；
+			基本思想：现将待排序的序列分成若干个子序列，并对其依次进行直接插入排序，待整个序列中的记录基本有序时，
+					 再对整体进行直接插入排序；
+					 即：选择一个d，子序列则被分为{arr[1],arr[1+d],arr[1+2d].....arr[1+kd]};{arr[2],arr[2+d]...arr[2+kd]}
+					 在对每一个子序列进行插入排序，d称之为增量，它在排序过程中从大到小逐渐缩小直至d=1；
+		-->
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function ShellSort(arr) {
+				var len = arr.length,temp,d = 1;
+				console.time('希尔排序耗时:');
+				while(d < len / 5) { //动态定义间隔序列
+					d = d * 5 + 1;
+				}
+				for(d; d > 0; d = Math.floor(d / 5)) {
+					for(var i = d; i < len; i++) {
+						temp = arr[i];
+						for(var j = i - d; j >= 0 && arr[j] > temp; j -= d) {
+							arr[j + d] = arr[j];
+						}
+						arr[j + d] = temp;
+					}
+				}
+				console.timeEnd('希尔排序耗时:');
+				return arr;
+			}
+			var arr = [9,8,7,6,5,4,3,2,1];
+			console.log(ShellSort(arr));
+		</script>
+	</body>
+
+</html>

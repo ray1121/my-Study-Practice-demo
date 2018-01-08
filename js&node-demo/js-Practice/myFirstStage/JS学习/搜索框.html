@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style type="text/css">
+			.search{
+				width: 258px;
+				height: 40px;
+				
+				margin: 50px auto ;
+				background: pink;
+				
+			}
+			.search #left,.search #right{
+				margin: 0;
+				padding: 0;
+				border: 0 none;
+				float: left;
+			}
+			.search #left{
+				width: 216px;
+				height: 40px;
+				background-image: url(img/left.jpg);
+				color: #ccc;
+				font-size: 20px;
+				
+			}
+			.search #right{
+				width: 42px;
+				height: 40px;
+				background-image: url(img/right.jpg);
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var left=document.getElementById("left");
+				left.onmouseover=function(){
+					left.focus();
+					left.select();
+				}
+				left.onfocus=function(){
+					if (left.value=="请输入...") {
+						left.value="";
+					} 
+					left.style.color="black";
+					
+				}
+				left.onblur=function(){
+					if (left.value=="") {
+						left.value="请输入...";
+						left.style.color="#ccc";
+					} else{
+						
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+<div class="search">
+	<input type="text" name="" id="left" value="请输入..." />
+	
+	<button id="right"></button>
+</div>
+	</body>
+</html>

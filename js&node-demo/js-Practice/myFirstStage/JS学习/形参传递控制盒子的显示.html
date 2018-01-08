@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 100px;
+				margin: 10px;
+				background-color: pink;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			//每个盒子都是一个对象
+			function fn(obj){
+				var la = document.getElementById(obj);
+				la.style.display='block';
+			}
+			
+		</script>
+	</head>
+
+	<body>
+	<!--使用id作为实参传递要加上引号传递对象-->
+		<button onclick="fn('demo1');">第1个盒子</button>
+		<button onclick="fn('demo2');">第2个盒</button>
+		<button onclick="fn('demo3');">第3个盒</button>
+		<button onclick="fn('demo4');">第4个盒</button>
+		<div id="demo1">1</div>
+		<div id="demo2">2</div>
+		<div id="demo3">3</div>
+		<div id="demo4">4</div>
+
+	</body>
+
+</html>

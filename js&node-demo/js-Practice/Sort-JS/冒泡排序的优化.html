@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>冒泡排序的优化</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//基本思想：如果在比较的某一轮当中没有发生交换说明数组的顺序已经排好了，就不需要再进行下一步的循环了；
+			//因此可以立一个flag表示当前的这一轮比较中有没有进行交换；若是本轮没有交换则结束循环
+			function bubbleSort(arr) {
+				var flag=false;
+				for(var i = 0; i < arr.length - 1; i++) {
+					for(var j = 0; j < arr.length - 1 - i; j++) {
+						var temp = null;
+						if(arr[j] > arr[j + 1]) {
+							flag=true;
+							temp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = temp;
+						}
+
+					}
+					if(flag){
+						flag=false;
+					}else{
+						break;
+					}
+				}
+				return arr;
+			}
+			var arr=[1,4,2,3,5,6,7]
+		console.log(bubbleSort(arr));
+			
+		</script>
+	</body>
+</html>

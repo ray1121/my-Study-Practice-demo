@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>递归思想</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//求n以内的不能被3整除的数的和；
+			function sum(n) {
+				if(n == 0) {
+					return 0;
+				} else if(n % 3 == 0) {
+					return(n - 1) + sum(n - 2);
+				}
+				return n + sum(n - 1);
+			}
+			var total = sum(11);
+			console.log(total);
+
+			//定时器setInterval
+
+			//			var count=0;
+			//			var timer=window.setInterval(function() {
+			//				count++;
+			//				console.log(count);
+			//				if(count==10){
+			//					window.clearInterval(timer);
+			//				}
+			//			},1000)
+			//setInterval(function(){},1000)每隔1秒钟让第一个参数的那个函数执行一次，执行完成之后清楚定时器clearInterval
+
+			//定时器setTimeout,此定时器只是在规定的时间后执行一次参数的函数，不能重复执行
+			//			var count=0;
+			//			var timer=window.setTimeout(function(){
+			//				count++;
+			//				console.log(count);
+			//				window.clearTimeout(timer);
+			//			},5000)
+
+			//用递归思想和setTimeout来实现没给一秒打印一次count，知道count==10；
+			var count = 0;
+			var timer = null;
+
+			function move() {
+				//每次递归进来先把上一次的定时器清除；
+				window.clearTimeout(timer);
+				count++;
+
+				console.log(count);
+				if(count==10){
+					return ;
+				}
+				//arguments.callee代表当前函数
+				timer = window.setTimeout(arguments.callee, 1000);
+			}
+			move();
+		</script>
+	</body>
+
+</html>

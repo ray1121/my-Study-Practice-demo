@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简单留言板</title>
+		<style type="text/css">
+			#box{
+				width: 500px;
+				height: 500px;
+				border: 1px solid #FF0000;
+			}
+			
+			
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+			var text=document.getElementById("text");
+			var box=document.getElementById("box");
+			var btn=document.getElementById("btn");
+			  btn.onclick=function(){
+			var val=text.value;
+			console.log(val);
+			var on='<p>'+val+'<p/>';
+			
+			box.innerHTML=on+box.innerHTML;
+			};
+			
+			
+			};
+			
+		</script>
+	</head>
+	<body>
+		<!--
+			需求：用户输入文本框里的内容显示到div中
+			
+		-->
+		<input type="text" id="text" value="" />
+		<input type="button" id="btn" value="留言" align="center"/>
+		<div id="box" align="center"></div>
+	</body>
+</html>

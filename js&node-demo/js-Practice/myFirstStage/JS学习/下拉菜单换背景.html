@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background: url(img/暗黑.jpg);
+				background-position: top center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var sel = document.getElementById("sel");
+				sel.onchange = function() {
+					switch(this.value) {
+						case "2":
+							document.body.style.backgroundImage = "url(img/1.jpg)";
+							break;
+
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<select name="" id="sel">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+	</body>
+
+</html>

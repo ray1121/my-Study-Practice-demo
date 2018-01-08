@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style type="text/css">
+			li{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				float: left;
+			}
+			.h10{
+				height: 10px;
+				
+			}
+			.cl{
+				clear: both;
+			}
+			/*
+			 * 若不给div设置高度则第二个div中的li浮动之后会贴到第一个盒子里的li中去
+			 加一个div作为墙使之具备消除浮动和高度的属性
+			 若是单独给第二个盒子加上clear：both；消除浮动的属性则会使得margin失效
+			 */
+		</style>
+		
+	</head>
+	<body>
+<div class="box1">
+	<ul>
+		<li>new1</li>
+		<li>new2</li>
+		<li>new3</li>
+	</ul>
+</div>
+<div class="h10 cl">
+	
+</div>
+<div class="box2">
+	<ul>
+		<li>lalal</li>
+		<li>lalallala</li>
+		<li>lallalala</li>
+		<li>lal</li>
+
+	</ul>
+</div>
+	</body>
+</html>

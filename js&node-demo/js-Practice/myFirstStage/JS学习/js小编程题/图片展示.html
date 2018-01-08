@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				height: 70px;
+				width: 360px;
+				padding-top: 360px;
+				margin: 100px auto;
+				border: 1px solid black;
+				background-position:  center top;
+				 
+				
+			}
+			
+			#box ul {
+				list-style: none;
+				overflow: hidden;
+			}
+			
+			#box ul li {
+				float: left;
+				margin-right: 2px;
+				border-top: 1px;
+			}
+			
+			img {
+				width: 70px;
+				height: 70px;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var box = document.getElementById("box");
+//封装函数！！！！
+				function fn(liid, bg) {
+					var ld = document.getElementById(liid);
+					ld.onmouseover = function() {
+						box.style.backgroundImage = bg;
+					}
+
+				}
+				fn("li01", "url(../img/1.jpg)");
+				fn("li02", "url(../img/2.jpg)");
+				fn("li03", "url(../img/3.jpg)");
+				fn("li04", "url(../img/暗黑.jpg)");
+				fn("li05", "url(../img/4.jpg)");
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li id="li01"><img src="../img/1.jpg" /></li>
+				<li id="li02"><img src="../img/2.jpg" /></li>
+				<li id="li03"><img src="../img/3.jpg" /></li>
+				<li id="li04"><img src="../img/暗黑.jpg" /></li>
+				<li id="li05"><img src="../img/4.jpg" /></li>
+			</ul>
+		</div>
+	</body>
+
+</html>

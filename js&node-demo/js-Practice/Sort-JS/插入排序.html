@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>插入排序</title>
+		<!--
+			插入排序基本思想：1.默认第一个元素为已排序
+			2.取出下一个元素，在已经排序的元素序列中从后往前比较
+			3.如果在已排序序列中该元素大于被扫描的元素，则将已排好顺序的序列中的那个元素向后移动一个位置
+			4.重复步骤3，知道比较遇到等于或者小于新元素的已排好顺序的元素
+			5.把新元素插入到该元素之后的位置
+			
+			算法分析：
+			    最好情况：为待排序的序列已经是从小到大的顺序排好了则只需要循环遍历比较，不需要移动，时间复杂度为O(n);
+			    最坏情况：和所需要的顺序彻底相反排列，则时间复杂度为(n^2)
+			    平均：O(n^2)
+			    
+		-->
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function InsertSort(arr){
+				console.time("直接插入排序代码执行时间：")
+				for (var i=1;i<arr.length;i++) {
+					//定义一个变量临时存放新元素
+					var temp=arr[i];
+					//定义一个变量为新元素前一个的下标，插入排序要在已经排序的序列中从后往前和新元素相比较
+					var j=i-1;
+					//一直比较到第一个元素，并且满足交换规律才执行交换
+					while(j>=0 && temp<arr[j]){
+						arr[j+1]=arr[j];
+						j--;
+					}
+					arr[j+1]=temp;
+				}
+				console.timeEnd("直接插入排序代码执行时间：")
+				return arr;
+			}
+			var arr=[9,8,7,6,5,4,3,2,1];
+			console.log(InsertSort(arr));
+		</script>
+	</body>
+
+</html>

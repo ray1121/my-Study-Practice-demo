@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--document.getElementsByClassName,IE678都不支持，所以封装获得类名的类-->
+		<div class="demo"></div>
+		<div></div>
+		<div></div>
+		<div class="demo"></div>
+		<div></div>
+		<div class="test demo"></div>
+		<div></div>
+		<script type="text/javascript">
+			function getClassName(classname){
+				if(document.getElementsByClassName){
+					return document.getElementsByClassName(classname);
+				}else{
+					var arr=[];
+					var dom=document.getElementsByTagName("*");
+					for (var i=0;i<dom.length;i++){
+//						if(dom[i].className==classname){
+//							arr.push(dom[i]);
+//							//将标签的类是“demo”的添加到空数组arr中,此种方法是获得所有含有demo类的标签
+//						}
+						var txt=dom[i].className;
+					 
+						while(txt.length==1){
+							while(dom[i].className==classname){
+								arr.push(dom[i]);
+							}
+						}
+					}
+					return arr;
+				}
+			}
+			console.log(getClassName("demo").length)
+			console.log(getClassName("demo"));
+		</script>
+		
+	</body>
+</html>

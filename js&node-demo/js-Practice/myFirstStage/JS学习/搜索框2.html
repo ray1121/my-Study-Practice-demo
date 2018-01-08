@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.search{
+				width: 258px;
+				height: 40px;
+				
+				margin: 50px auto ;
+			position: relative;
+				
+			}
+			.search #message{
+				position: absolute;
+				color: #ccc;
+				font-size: 20px;
+				top: 10px;
+				left: 10px;
+				cursor: text;
+			}
+			.search #left,.search #right{
+				margin: 0;
+				padding: 0;
+				border: 0 none;
+				float: left;
+			}
+			.search #left{
+				width: 216px;
+				height: 40px;
+				background-image: url(img/left.jpg);
+				
+				font-size: 20px;
+				
+				
+			}
+			
+			.search #right{
+				width: 42px;
+				height: 40px;
+				background-image: url(img/right.jpg);
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				function $(id){
+					return document.getElementById(id);
+					
+				}
+				$("left").focus();
+				$("left").onmouseover=function(){
+					this.select();
+				}
+				$("left").oninput=$("left").onpropertychange=function(){
+					if (this.value=="") {
+						$("message").style.display='block';
+					} else{
+						$("message").style.display='none';
+					}
+				}
+				$("right").onclick=function(){
+					$("left").value="";
+					$("message").style.display='block';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="search">
+	<input type="text" name="" id="left" value="" />
+	<label for="left" id="message">请输入...</label>
+	
+	<button id="right"></button>
+</div>
+	</body>
+</html>

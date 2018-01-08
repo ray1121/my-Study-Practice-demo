@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title>图片切换</title>
+		<style type="text/css">
+			img{
+				display: block;
+				width: 1000px;
+				height:600px ;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var prev=document.getElementById("prev");
+				var next=document.getElementById("next");
+				var pic=document.getElementById("pic");
+				var n=1
+				next.onclick=function(){
+					n++;
+					if(n>4)
+					{n=1;}
+					
+					pic.src='img/'+n+'.jpg';
+					//关键点字符串拼接获取地址；
+				};
+				prev.onclick=function(){
+				n--;
+				if(n<1)
+				n=4;
+				pic.src='img/'+n+'.jpg';
+				};
+				
+				
+			};
+		</script>
+	</head>
+	<body >
+	<input type="button" name="prev" id="prev" value="上一张" />
+	<input type="button" name="" id="next" value="下一张" />
+	<img src="img/1.jpg" id="pic"/>
+		
+		
+		
+		
+		
+	</body>
+</html>

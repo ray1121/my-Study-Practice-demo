@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			#demo1{
+				width: 300px;
+				
+				border:1px dashed black ;
+				overflow: hidden;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var demo1=document.getElementById("demo1");
+				var demo2=document.getElementById("demo2")
+				demo1.previousElementSibling.onclick=function(){
+				var newli=	document.createElement("li");
+				var arr=demo1.firstChild;
+				newli.innerHTML="我是动态加入的";
+				
+				demo1.firstElementChild.appendChild(newli)
+				document.body.appendChild(demo1.cloneNode("true"));
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button>点击</button>
+		<div id="demo1">
+			<ul id="demo2">
+				<li>lalalla</li>
+				
+			</ul>
+		</div>
+	</body>
+</html>

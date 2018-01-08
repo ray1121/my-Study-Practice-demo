@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>插入算法的改进（查找时采用二分查找法）</title>
+		<!--
+			对数组查找的通常做法是遍历整个数组一一与目标元素相比较，其时间复杂度为O(n)
+			二分(binary)查找法：优点是比较次数少比较快，缺点是要求代查表为有序序列
+			           基本思想：将有序序列（以升序为例）的中间元素与查找字做比较，如果两者相等则比较成功，
+			            			通过比较大小决定在左右哪个子表，重复；其时间复杂度是O(lgn);
+			 改进后的插入排序时间复杂度依然是O(n^2)
+		-->
+	</head>
+	<body>
+		<script type="text/javascript">
+			function InsertSort_Binary(arr){
+				console.time("直接插入排序(二分查找改进)代码执行时间：")
+				for (var i=1;i<arr.length;i++) {
+					//初始值，关键字key即为新元素，一开始的时候为数组序列的第二个值；
+					//    	 left=0，right为指向子序列的第一和最后一个元素的下标
+					var key=arr[i],left=0,right=i-1;
+					//此处是为了不断缩小子序列的范围找到新元素应该在的位置上
+					while(left<=right){
+						var mid=parseInt((left+right)/2);
+						//如果新元素的值小于中间值的时候，应该在中间值的左边子序列
+						if(key<arr[mid]){
+							//那么right指针指向的位置则为中间值的下表左边的位置的下标
+							right=mid-1;
+						}else{
+							//否则若是新元素应该插入到右边的子序列的时候，则应该吧左指针left指向mid右边一个位置上；
+							
+							left=mid+1;
+						}
+					}
+					//遍历数组并且为新元素腾地方
+					for(var j=i-1;j>=left;j--){
+						arr[j + 1] = arr[j];
+					}
+					//left最终会来到新元素所要放置的地方的，不信你一步步试试
+					arr[left]=key;
+					
+				}
+				console.timeEnd("直接插入排序(二分查找改进)代码执行时间：")
+				return arr;
+			}
+			var arr=[9,8,7,6,5,4,10,2,1];
+			console.log(InsertSort_Binary(arr));
+		</script>
+	</body>
+</html>

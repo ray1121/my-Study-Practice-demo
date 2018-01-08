@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			Array.prototype.ArrUnique=function() {
+				var obj = {};
+				for(var i = 0; i < this.length; i++) {
+					var cur = this[i];
+					if(obj[cur]==cur){
+						this[i]=this[this.length-1];
+						this.length--;
+						i--;
+						continue;
+					}
+					obj[cur]=cur;
+				}
+				obj=null;
+			}
+			var arr=new Array(12,12,13,1,2,2);
+			console.log(arr)
+			arr.ArrUnique();
+			//输出12，2，13，1
+			
+		</script>
+	</body>
+
+</html>

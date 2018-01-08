@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var btn = document.getElementsByTagName("button");
+				var cb = document.getElementsByTagName("input");
+				//				btn[0].onclick = function() {
+				//					for(var i = 0; i < cb.length; i++) {
+				//						cb[i].checked = true;
+				//					}
+				//				}
+				//				btn[1].onclick = function() {
+				//					for(var i = 0; i < cb.length; i++) {
+				//						cb[i].checked = false;
+				//					}
+				//				}
+				//				btn[2].onclick = function() {
+				//					for(var i = 0; i < cb.length; i++) {
+				//						if(cb[i].checked==true){
+				//							cb[i].checked=false;
+				//						}else {
+				//							cb[i].checked=true;
+				//						}
+				//					}
+				//				}
+				function slec(bollen) {
+
+					for(var i = 0; i < cb.length; i++) {
+						cb[i].checked = bollen;
+
+					}
+				}
+//				btn[0].onclick=slec(true) ;
+//				这种写法没有点击事件之前就会执行！！！！！！！！
+				btn[0].onclick=function(){
+					slec(true);
+				}
+				btn[1].onclick=function(){
+					slec(false);
+				}
+				btn[2].onclick=function(){
+					
+					for(var i = 0; i < cb.length; i++) {
+						//三目表达式
+						cb[i].checked==true ? cb[i].checked=false :cb[i].checked=true;
+
+					}
+
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="top">
+			<button>全选</button>
+			<button>取消</button>
+			<button>反选</button>
+
+		</div>
+		<div id="bottom">
+			<ul>
+				<li>选项：<input type="checkbox" name="" id="" value="" /></li>
+				<li>选项：<input type="checkbox" name="" id="" value="" /></li>
+				<li>选项：<input type="checkbox" name="" id="" value="" /></li>
+				<li>选项：<input type="checkbox" name="" id="" value="" /></li>
+			</ul>
+		</div>
+	</body>
+
+</html>

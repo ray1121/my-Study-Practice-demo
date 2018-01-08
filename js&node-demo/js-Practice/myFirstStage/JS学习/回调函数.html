@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function multy2(a,b,c){
+//				var a1=[];
+//				for (var i=0;i<3;i++) {
+//					a1[i]=arguments[i]*2
+//				}
+//				return a1;
+//			}
+//			function jia1(a){
+//				return a+1;
+//			}
+////			var arr1=[]
+//			
+//			alert(multy2(10,20,30))
+//			alert(multy2(jia1(10),jia1(20),jia1(30 )))
+			//先进行加一之后在进行乘法；
+			//回调函数callback
+			function addone(a){
+				return a+1;
+			}
+			function test(a,b,c,callback){
+				var arr1=[];
+				for (var i=0;i<3;i++) {
+					arr1[i]=callback(arguments[i]*2)
+				}
+				return arr1;
+			}
+		alert(test(10,20,30,addone));	
+		//匿名回调函数
+		alert(test(5,6,7,function(a){return a+2;}))
+		alert(test.call(addone,1,2,3));
+		</script>
+	</body>
+</html>

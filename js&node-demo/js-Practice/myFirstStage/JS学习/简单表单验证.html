@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box {
+				text-align: center;
+				margin: 100px auto;
+			}
+			
+			span {
+				display: inline-block;
+				width: 150px;
+				height: 20px;
+				border: 1px solid #ccc;
+				font-size: 12px;
+				line-height: 20px;
+				text-align: left;
+				padding-left: 20px;
+				background-color: #eee;
+				color: #999;
+			}
+			
+			.right {
+				/*正确的*/
+				color: #5EFF5E;
+				background: url(img/right.png) no-repeat #DFFFDF 4px 3px;
+				border: 1px solid #ACFFAC;
+			}
+			
+			.wrong {
+				/*错误的*/
+				background: url(img/wrong.png) no-repeat #FFDCD0 4px 3px;
+				border: 1px solid #FFAC91;
+				color: #FF6B39;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				function $id(id) {
+					return document.getElementById(id);
+				}
+				$id('txt').onblur = function() {
+					if(this.value == '') {
+						$id('reasult').className = 'wrong';
+						$id('reasult').innerHTML = '您的输入值不能为空！';
+					} else if(isNaN(this.value)) {
+						$id('reasult').className = 'wrong';
+						$id('reasult').innerHTML = '请输入数字！';
+					} else if(this.value > 150 || this.value < 0) {
+						$id('reasult').className = 'wrong';
+						$id('reasult').innerHTML = '请输入0~150的数字！';
+					} else {
+						$id('reasult').className = 'right';
+						$id('reasult').innerHTML = '恭喜您';
+					}  
+					
+					
+				}
+				//页面进入后输入框自动获得焦点
+				$id('txt').focus();
+				//鼠标经过时自动选择输入框里的内容 
+					$id('txt').onmouseover=function(){
+						this.select();
+					}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="box">
+			语文: <input type="text" id="txt" value="" /> <span id="reasult">请输入成绩</span>
+		</div>
+	</body>
+
+</html>

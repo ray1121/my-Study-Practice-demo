@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+				margin: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var demo1=document.getElementById("demo1");
+				var childrens=demo1.nextElementSibling.nextElementSibling.firstElementChild.children;
+//				var ulChildrens=document.getElementById("ul").children
+				demo1.onclick=function(){
+					this.nextElementSibling.style.background="red";
+				}
+				
+			demo1.appendChild("demo1.nextElementSibling.nextElementSibling.firstElementChild.cloneNode(true)";)	
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="demo1">1</div>
+		<div>2</div>
+		<div>
+			<ul id="ul">
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+			</ul>
+		</div>
+	</body>
+</html>

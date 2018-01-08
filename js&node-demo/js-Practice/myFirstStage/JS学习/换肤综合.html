@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background: url(img/1.jpg);
+				background-size: 100%;
+				background-position: center top;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+			}
+			
+			.skin {
+				background-color: sienna;
+				text-align: center;
+				position: relative;
+			}
+			
+			.skin img {
+				cursor: pointer;
+			}
+			
+			#login {
+				position: absolute;
+				float: right;
+				text-decoration: none;
+				color: white;
+				top: 50%;
+				right: 10px;
+			}
+			
+			.mask {
+				display: none;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .5);
+				z-index: 999;
+			}
+			.win_1{
+				position: fixed;
+				width: 400px;
+				height: 250px;
+				background: skyblue;
+				z-index: 1000;
+				top: 50%;
+				left: 50%;
+				margin-left: -200px;
+				margin-top: -125px;
+				display: none;
+				text-align: center;
+				
+			}
+			#close_win1{
+				float: right;
+				width: 20px;
+				font-size: 20px;
+				color: blanchedalmond;
+				cursor: pointer;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var s1 = document.getElementById("pic1");
+				var s2 = document.getElementById("pic2");
+				var s3 = document.getElementById("pic3");
+				var login=document.getElementById("login");
+				var mask=document.getElementById("mask");
+				var btn=document.getElementById("btn");
+				var pass=document.getElementById("pass").value;
+				var age=document.getElementById("age").value;
+				s1.onclick = function() {
+					document.body.style.backgroundImage = "url(img/1.jpg)";
+				}
+				s2.onclick = function() {
+					document.body.style.backgroundImage = "url(img/2.jpg)";
+				}
+				s3.onclick = function() {
+					document.body.style.backgroundImage = "url(img/3.jpg)";
+				}
+				login.onclick=function(){
+				
+					mask.style.display="block";
+					document.getElementById("win_1").style.display="block";
+				}
+				document.getElementById("close_win1").onclick=function(){
+					document.getElementById("mask").style.display="none";
+					this.parentNode.style.display="none";
+					
+				}
+				function fn(pass1,age1){
+					if(fn.length==arguments.length){
+						alert(pass1+age1);
+					}else{
+						alert("你去死吧！")
+					}
+				}
+				btn.onclick=function(){
+					
+					fn(pass,age);
+					document.getElementById("pass").value="";
+					document.getElementById("age").value="";
+//					pass='';
+//					age='';
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<div class="mask" id="mask">
+			
+		</div>
+		<div class="win_1" id="win_1">
+			<span id="close_win1">x</span>
+			<hr width="100%"/>
+			真实姓名：<input type="text" name="" id="pass" value="" style="margin: 10px;"/>
+			<br />
+			备注信息：<textarea name="" id="age" cols="30" rows="10" style="resize:none;"></textarea>
+			<br />
+			<input type="button" name="btn" id="btn" value="提交备注信息" />
+         
+			</div>
+			
+		<div class="skin">
+			<a href="javascript:;" id="login">登录</a>
+			<img src="img/1.jpg" width="100px" id="pic1" />
+			<img src="img/2.jpg" / width="100px" id="pic2">
+			<img src="img/3.jpg" width="100px" id="pic3" />
+
+		</div>
+	</body>
+
+</html>
